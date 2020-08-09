@@ -1,7 +1,7 @@
 # Hex_To_Binary_To_Decimal_
 
 ## Installation
-Download The Code And Then Run The Main_Struct.py
+Download The Code And Then Run The Main_Struct.py.
 You Will Need This Also To Run This:
 
 ```
