@@ -1,9 +1,11 @@
 # Hex_To_Binary_To_Decimal_
-<h2>This Is A Python Program Can Be Used To Convert The Hex To Decimal To Binary And Vice Versa</h2>
-<h1>Usage</h1>
-<h2>This Can Takes Input In Binary And Decimal And Hex</h2>
-<h2>So, If A Decimal Input Is Given It will Give Output Of Hex And Binary Of Decimal Number!</h2>
-## My Youtube Channel:
-https://www.youtube.com/channel/UC8gM1wcwyieneg5-pa7Lc_A
 
-## GUI VERSION IN DEVELOPMENT
+## Installation
+Download The Code And Then Run The Main_Struct.py
+
+## Contribute:
+[YouTube Channel]https://www.youtube.com/channel/UC8gM1wcwyieneg5-pa7Lc_A
+Or Use Github:
+First Make Issue And Then We Discuss There!
+To Make Pull Changes!
+I Am Trying To Make A Gui Version Of This in PyQt5 If you Can Make In tkinter make Pull request and then Discuss There For More On This!
