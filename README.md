@@ -2,6 +2,11 @@
 
 ## Installation
 Download The Code And Then Run The Main_Struct.py
+You Will Need This Also To Run This:
+
+```
+pip install tenacity
+```
 
 ## Contribute:
 [YouTube Channel]https://www.youtube.com/channel/UC8gM1wcwyieneg5-pa7Lc_A
