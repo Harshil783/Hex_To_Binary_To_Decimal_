@@ -1,5 +1,17 @@
+from tenacity import *
 from ast import literal_eval
+#def
 import time
+def bins(n):
+    b_num = list(n)
+    value = 0
+
+    for i in range(len(b_num)):
+        digit = b_num.pop()
+        if digit == '1':
+            value = value + pow(2, i)
+    print(f"The Decimal Form is: {value}")
+    time.sleep(3)
 print("Welcome To Decimal To Hex Or Binary Converter")
 def line():
     for i in range(50):
@@ -10,58 +22,84 @@ print("\nPlease Type The 'd' for decimal input")
 line()
 print("\nPlease Type The 'b' for binary input")
 line()
-temp = input("\nType 'h' or 'd' or 'b':")
-line()
-time.sleep(1)
-print(f"\nSo You type '{temp}'")
-time.sleep(1)
-
-for i in temp:
-    if i == 'h':
-        try:
-            time.sleep(1)
-            hexa = input("\nPlease Type The Hex Input To Convert Into Deciaml And Binary:")
-            time.sleep(1)
-            print(f"In The Decimal Form: %s" %(literal_eval(hexa)))
-            print(f"In The Binary Form: %s" %(bin(int(hexa,16))))
-            time.sleep(5)
-        except ValueError:
-            print("Only Hex Numbers!")
-            print("Hex Numbers Look Like 0x1,0x3, etc.")
-            time.sleep(5)
+time.sleep(0.1)
+@retry(stop=stop_after_attempt(2))
+def starting():
+    temp = input("\nType 'h' or 'd' or 'b':")
+    time.sleep(0.1)
+    print(f"\nSo You type '{temp}'")
+    line()
+    for i in temp:
+        if i == 'h':
+            try:
+                time.sleep(0.1)
+                hexa = input("\nIf You Wish Don't Run The Program Just Type! 'q'\nPlease Type The Hex Input To Convert Into Deciaml And Binary:")
+                if hexa == 'q':
+                    sys.exit("You Don't To Run The Program")
+                else:
+                    time.sleep(0.1)
+                    print(f"In The Decimal Form: {literal_eval(hexa)}")
+                    print(f"In The Binary Form: {(bin(int(hexa,16)))}")
+                    time.sleep(3)
+            except ValueError:
+                print("Only Hex Numbers!")
+                print("Hex Numbers Look Like 0x1,0x3, etc.")
+                time.sleep(5)
+                line()
+        elif i == 'd':
             line()
-    elif i == 'd':
-        line()
-        time.sleep(1)
-        print("\nEntering Decimal Mode")
-        time.sleep(1)
-        line()
-        time.sleep(1)
-        deci = input("\nPlease Type The Decimal Input To Convert Into Hex And Binary:")
-        try:
-            time.sleep(1)
-            print(f"In The Hexadecimal Form: %s" %(int(deci)))
-            print(f"In The Binary Form: %s" %(bin(int(deci,16))))
-            time.sleep(5)
-        except ValueError:
-            print("Only Decimal And Integers Accepted!")
-            print("Type Some Simple Numbers like 1,2,3, etc.")
+            time.sleep(0.1)
+            print("\nEntering Decimal Mode")
+            time.sleep(0.1)
             line()
-            time.sleep(5)
-    elif i == 'b':
-        line()
-        time.sleep(1)
-        print("\nEntering Binary Form")
-        line()
-        time.sleep(1)
-        bina = input("\nType The Binary Input To Convert In Hexadecimal And Decimal Form:")
-        line()
-        try:
-            time.sleep(1)
-            print("\nIn The HexaDecimal Form: %s" %(hex(int(bina,2))))
+            time.sleep(0.1)
+            deci = input("\nIf You Wish Don't Run The Program Just Type! 'q'\nPlease Type The Decimal Input To Convert Into Hex And Binary:")
+            try:
+                time.sleep(0.1)
+                if deci == 'q':
+                    sys.exit("")
+                else:
+                    print(f"In The Hexadecimal Form: {(int(deci))}")
+                    print(f"In The Binary Form: {(bin(int(deci,16)))}")
+                time.sleep(5)
+            except ValueError:
+                print("Only Decimal And Integers Accepted!")
+                print("Type Some Simple Numbers like 1,2,3, etc.")
+                line()
+                time.sleep(3)
+        elif i == 'b':
+            line()
+            time.sleep(0.1)
+            print("\nEntering Binary Form")
 
-        except ValueError:
-            print("\nOnly Binary Numbers:")
-    else:
-        print("Please Only Select From 'h' or 'd' or 'b' ")
-        time.sleep(5)
+            time.sleep(0.1)
+            bina = input("\nIf You Wish Don't Run The Program Just Type! 'q'\nType The Binary Input To Convert In Hexadecimal And Decimal Form:")
+
+            try:
+                time.sleep(0.1)
+                if bina == 'q':
+                    sys.exit()
+                else:
+                    print(f"\nIn The HexaDecimal Form: {(hex(int(bina,2)))}")
+                    print(bins(bina))
+            except ValueError:
+                print("\nOnly Binary Numbers:")
+        else:
+            print("\nPlease Only Select From 'h' or 'd' or 'b' ")
+            time.sleep(3)
+for i in range(0,3):
+    while True:
+        try:
+            starting()
+        except:
+            continue
+        break
+
+"""
+for i in range(0,100):
+    while True:
+        try:
+            # do stuff
+        except SomeSpecificException:
+            continue
+        break"""
