@@ -1,16 +1,17 @@
-# Hex_To_Binary_To_Decimal_
-
+# Hex_To_Binary_To_Decimal
 ## Installation
-- Download The Code And Then Run The Main_Struct.py.
-- You Will Need This Also To Run This:
+1. Download The Code From The Github And Run Main_Struct.py
+2. use ```pip install tenacity ```
 
-```
-pip install tenacity
-```
+### Reason For  External Libraries
+-  For Retrying After Exceptions
 
-## Contribute:
-[YouTube Channel]https://www.youtube.com/channel/UC8gM1wcwyieneg5-pa7Lc_A
-Or Use Github:
-- First Make Issue And Then We Discuss There!
-- To Make Pull Changes!
-- I Am Trying To Make A Gui Version Of This in PyQt5 If you Can Make In tkinter make Pull request and then Discuss There For More On This!
+### Why Use
+- Use For Converting Numbers From Decimal To Hex To Binary And Vice Versa
+
+## Contribute
+[Subscribe Me On YouTube](#https://www.youtube.com/channel/UC8gM1wcwyieneg5-pa7Lc_A)
+#### If You Want To Contribute Using GitHub
+- Please Make A Issue And Then Discuss About It!
+- After Discussing Make A Pull Request!
+- If your Code is not Buggy Then Merge It Into Master Branch
