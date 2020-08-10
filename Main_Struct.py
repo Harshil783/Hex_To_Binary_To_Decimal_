@@ -3,6 +3,7 @@ from ast import literal_eval
 #def
 import sys
 import time
+
 def bins(n):
     b_num = list(n)
     value = 0
@@ -13,17 +14,10 @@ def bins(n):
             value = value + pow(2, i)
     print(f"The Decimal Form is: {value}")
     time.sleep(3)
-print("Welcome To Decimal To Hex Or Binary Converter")
+
 def line():
     for i in range(50):
         print("-",end='')
-print("\nPlease Type The 'h' for hex input")
-line()
-print("\nPlease Type The 'd' for decimal input")
-line()
-print("\nPlease Type The 'b' for binary input")
-line()
-time.sleep(0.1)
 @retry(stop=stop_after_attempt(2))
 def starting():
     temp = input("\nType 'h' or 'd' or 'b':")
@@ -91,13 +85,6 @@ def starting():
         else:
             print("\nPlease Only Select From 'h' or 'd' or 'b' ")
             time.sleep(3)
-for i in range(0,3):
-    while True:
-        try:
-            starting()
-        except:
-            continue
-        break
 
 """
 for i in range(0,100):
@@ -107,3 +94,20 @@ for i in range(0,100):
         except SomeSpecificException:
             continue
         break"""
+
+if __name__ == '__main__':
+    print("Welcome To Decimal To Hex Or Binary Converter")
+    print("\nPlease Type The 'h' for hex input")
+    line()
+    print("\nPlease Type The 'd' for decimal input")
+    line()
+    print("\nPlease Type The 'b' for binary input")
+    line()
+    time.sleep(0.1)
+    for i in range(0,3):
+        while True:
+            try:
+                starting()
+            except:
+                continue
+            break
