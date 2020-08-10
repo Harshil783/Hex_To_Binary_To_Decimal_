@@ -1,6 +1,7 @@
 from tenacity import *
 from ast import literal_eval
 #def
+import sys
 import time
 def bins(n):
     b_num = list(n)
@@ -28,14 +29,14 @@ def starting():
     temp = input("\nType 'h' or 'd' or 'b':")
     time.sleep(0.1)
     print(f"\nSo You type '{temp}'")
-    line()
     for i in temp:
         if i == 'h':
             try:
                 time.sleep(0.1)
                 hexa = input("\nIf You Wish Don't Run The Program Just Type! 'q'\nPlease Type The Hex Input To Convert Into Deciaml And Binary:")
                 if hexa == 'q':
-                    sys.exit("You Don't To Run The Program")
+                    print("Exiting HexaDecimal Input!")
+                    exit()
                 else:
                     time.sleep(0.1)
                     print(f"In The Decimal Form: {literal_eval(hexa)}")
@@ -57,7 +58,7 @@ def starting():
             try:
                 time.sleep(0.1)
                 if deci == 'q':
-                    sys.exit("")
+                    sys.exit("Exiting Binary Form")
                 else:
                     print(f"In The Hexadecimal Form: {(int(deci))}")
                     print(f"In The Binary Form: {(bin(int(deci,16)))}")
@@ -78,12 +79,15 @@ def starting():
             try:
                 time.sleep(0.1)
                 if bina == 'q':
-                    sys.exit()
+                    sys.exit("Exiting Binary Form")
                 else:
                     print(f"\nIn The HexaDecimal Form: {(hex(int(bina,2)))}")
                     print(bins(bina))
             except ValueError:
                 print("\nOnly Binary Numbers:")
+        elif temp == "q":
+            line()
+            print("\nPress The Close Button Or This Program Runs Until You Give 3 Wrong Input")
         else:
             print("\nPlease Only Select From 'h' or 'd' or 'b' ")
             time.sleep(3)
