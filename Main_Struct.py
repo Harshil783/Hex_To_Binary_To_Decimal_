@@ -24,6 +24,7 @@ def maincheck(temp):
     a = isDeci(temp)
     if a == False:
         b = IsBinaryString(temp)
+        temp.replace("0b","")
         if b == False:
             oc = IsOctalString(temp)
             if oc == False:
@@ -45,7 +46,7 @@ def maincheck(temp):
                 time.sleep(4)
         else:
             todeci = int(temp,2)
-            print("The " + str(temp) +" In Decimal Number Is = ",int(temp, 16))
+            print("The " + str(temp) +" In Decimal Number Is = ",int(temp, 2))
             print("The " + str(temp) +" In Hex Number Is = ",hex(todeci))
             print("The " + str(temp) + " In Octal Number Is = ",oct(todeci))
             time.sleep(4)
