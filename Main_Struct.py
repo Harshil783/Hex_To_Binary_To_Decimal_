@@ -1,112 +1,74 @@
-from tenacity import *
-from ast import literal_eval
-#def
-import sys
-import time
+import time 
+def IsNumericBase(s, base):
+ try:
+  int(s, base)
+  return True
+ except ValueError:
+  return False
+def isDeci(s):
+    return IsNumericBase(s, 10)
+# Returns True if <s> is binary number string
+def IsBinaryString(s):
+ return IsNumericBase(s, 2)
 
-def bins(n):
-    b_num = list(n)
-    value = 0
+# Returns True if <s> is octal number string
+def IsOctalString(s):
+ return IsNumericBase(s, 8)
 
-    for i in range(len(b_num)):
-        digit = b_num.pop()
-        if digit == '1':
-            value = value + pow(2, i)
-    print(f"The Decimal Form is: {value}")
-    time.sleep(3)
+# Returns True if <s> is hexadecimal number string
+def IsHexadecimalString(s):
+ return IsNumericBase(s, 16)
 
-def line():
-    for i in range(50):
-        print("-",end='')
-@retry(stop=stop_after_attempt(2))
-def starting():
-    temp = input("\nType 'h' or 'd' or 'b':")
-    time.sleep(0.1)
-    print(f"\nSo You type '{temp}'")
-    if temp == 'h':
-        try:
-            time.sleep(0.1)
-            hexa = input("\nIf You Wish Don't Run The Program Just Type! 'q'\nPlease Type The Hex Input To Convert Into Deciaml And Binary:")
-            if hexa == 'q':
-                print("Exiting HexaDecimal Input!")
-                exit()
+#Main Def Starting
+def maincheck(temp):
+    a = isDeci(temp)
+    if a == False:
+        b = IsBinaryString(temp)
+        temp.replace("0b","")
+        if b == False:
+            oc = IsOctalString(temp)
+            if oc == False:
+                hexa = IsHexadecimalString(temp)
+                if hexa == False:
+                    print("Only Hex,Numbers,Binary And Octal Are Supported")
+                    time.sleep(4)
+                else:
+                    todeci = int(temp,16)
+                    print("The " + str(temp) +" In Decimal Number Is = ",int(temp, 16))
+                    print("The " + str(temp) +" In Binary Number Is = ",bin(todeci).replace("0b",""))
+                    print("The " + str(temp) + " In Octal Number Is = ",oct(todeci))
+                    time.sleep(4)
             else:
-                time.sleep(0.1)
-                print(f"In The Decimal Form: {literal_eval(hexa)}")
-                print(f"In The Binary Form: {(bin(int(hexa,16)))}")
-                time.sleep(3)
-        except ValueError:
-            print("Only Hex Numbers!")
-            print("Hex Numbers Look Like 0x1,0x3, etc.")
-            time.sleep(5)
-            line()
-    elif temp == 'd':
-        line()
-        time.sleep(0.1)
-        print("\nEntering Decimal Mode")
-        time.sleep(0.1)
-        line()
-        time.sleep(0.1)
-        deci = input("\nIf You Wish Don't Run The Program Just Type! 'q'\nPlease Type The Decimal Input To Convert Into Hex And Binary:")
-        try:
-            time.sleep(0.1)
-            if deci == 'q':
-                sys.exit("Exiting Binary Form")
-            else:
-                print(f"In The Hexadecimal Form: {(int(deci))}")
-                print(f"In The Binary Form: {(bin(int(deci,16)))}")
-            time.sleep(5)
-        except ValueError:
-            print("Only Decimal And Integers Accepted!")
-            print("Type Some Simple Numbers like 1,2,3, etc.")
-            line()
-            time.sleep(3)
-    elif temp == 'b':
-        line()
-        time.sleep(0.1)
-        print("\nEntering Binary Form")
-
-        time.sleep(0.1)
-        bina = input("\nIf You Wish Don't Run The Program Just Type! 'q'\nType The Binary Input To Convert In Hexadecimal And Decimal Form:")
-
-        try:
-            time.sleep(0.1)
-            if bina == 'q':
-                sys.exit("Exiting Binary Form")
-            else:
-                print(f"\nIn The HexaDecimal Form: {(hex(int(bina,2)))}")
-                print(bins(bina))
-        except ValueError:
-            print("\nOnly Binary Numbers:")
-    elif temp == "q":
-        line()
-        print("\nPress The Close Button Or This Program Runs Until You Give 3 Wrong Input")
+                todeci = int(temp,8)
+                print("The " + str(temp) +" In Decimal Number Is = ",int(temp,8))
+                print("The " + str(temp) +" In Binary Number Is = ",bin(todeci).replace("0b",""))
+                print("The " + str(temp) + " In Hex Number Is = ",hex(todeci))
+                time.sleep(4)
+        else:
+            todeci = int(temp,2)
+            print("The " + str(temp) +" In Decimal Number Is = ",int(temp, 2))
+            print("The " + str(temp) +" In Hex Number Is = ",hex(todeci))
+            print("The " + str(temp) + " In Octal Number Is = ",oct(todeci))
+            time.sleep(4)
     else:
-        print("\nPlease Only Select From 'h' or 'd' or 'b' ")
-        time.sleep(3)
+        todeci = int(temp,10)
+        print("The " + str(temp) +" In Hex Number Is = ",hex(todeci))
+        print("The " + str(temp) +" In Binary Number Is = ",bin(todeci).replace("0b",""))
+        print("The " + str(temp) + " In Octal Number Is = ",oct(todeci))
+        time.sleep(4)
+#Main Def Ending 
 
-"""
-for i in range(0,100):
-    while True:
-        try:
-            # do stuff
-        except SomeSpecificException:
-            continue
-        break"""
-
-if __name__ == '__main__':
-    print("Welcome To Decimal To Hex Or Binary Converter")
-    print("\nPlease Type The 'h' for hex input")
-    line()
-    print("\nPlease Type The 'd' for decimal input")
-    line()
-    print("\nPlease Type The 'b' for binary input")
-    line()
-    time.sleep(0.1)
-    for i in range(0,3):
-        while True:
-            try:
-                starting()
-            except:
-                continue
-            break
+if __name__ == "__main__":
+    print("\t\tWelcome To Hex_To_Decimal_Binary_Octal\n")
+    #for i in range(1,6):
+   print("Type Any Number Like Hex, Binary, Octal Or Decimal I Will Convert It!")
+    temp = input("\nPlease Type The Number: ")
+    for i in temp:
+        if IsOctalString == True:
+            if i == '0o':
+                temp.replace("0o")
+            else:
+                pass
+        else:
+            pass
+    maincheck(temp)
