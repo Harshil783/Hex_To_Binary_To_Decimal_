@@ -61,7 +61,8 @@ def maincheck(temp):
 if __name__ == "__main__":
     print("\t\tWelcome To Hex_To_Decimal_Binary_Octal\n")
     #for i in range(1,6):
-    temp = input("Please Type The Number: ")
+   print("Type Any Number Like Hex, Binary, Octal Or Decimal I Will Convert It!")
+    temp = input("\nPlease Type The Number: ")
     for i in temp:
         if IsOctalString == True:
             if i == '0o':
